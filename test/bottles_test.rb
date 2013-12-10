@@ -3,12 +3,11 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/bottles'
 require './lib/verse'
-require './lib/verse_strategy'
-require './lib/verse_strategy_0'
-require './lib/verse_strategy_1'
-require './lib/verse_strategy_2'
-require './lib/verse_strategy_6'
-require './lib/verse_strategy_7'
+require './lib/fixnum'
+require './lib/bottle_number'
+require './lib/bottle_number_0'
+require './lib/bottle_number_1'
+require './lib/bottle_number_6'
 
 class BottlesTest < MiniTest::Unit::TestCase
 
@@ -46,7 +45,7 @@ class BottlesTest < MiniTest::Unit::TestCase
   end
 
   def test_several_verses
-    expected = "8 bottles of beer on the wall, 8 bottles of beer.\nTake one down and pass it around, 7 bottles of beer on the wall.\n\n7 bottles of beer on the wall, 7 bottles of beer.\nTake one down and pass it around, 6 pack of beer on the wall.\n\n6 pack of beer on the wall, 6 pack of beer.\nTake one down and pass it around, 5 bottles of beer on the wall.\n\n"
+    expected = "8 bottles of beer on the wall, 8 bottles of beer.\nTake one down and pass it around, 7 bottles of beer on the wall.\n\n7 bottles of beer on the wall, 7 bottles of beer.\nTake one down and pass it around, 1 six-pack of beer on the wall.\n\n1 six-pack of beer on the wall, 1 six-pack of beer.\nTake one down and pass it around, 5 bottles of beer on the wall.\n\n"
     assert_equal expected, song.verses(8, 6)
   end
 

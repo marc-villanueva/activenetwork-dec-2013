@@ -1,17 +1,18 @@
+require 'forwardable'
+
 class Verse
-  extend Forwardable
+  attr_reader :verse_number
 
-  def_delegators :@strategy, :action, :current_inventory, :future_inventory, :current_container, :future_container
-
-  def initialize strategy
-    @strategy = strategy
+  def initialize verse_number
+    @verse_number = verse_number
   end
 
   def to_s
-    "#{current_inventory} #{current_container} of #{liquid} #{location}, ".capitalize +
-    "#{current_inventory} #{current_container} of #{liquid}.\n" +
-    "#{action}, " +
-    "#{future_inventory} #{future_container} of #{liquid} #{location}.\n"
+    bottle = verse_number.to_bottle_number
+    "#{bottle} of #{liquid} #{location}, ".capitalize +
+    "#{bottle} of #{liquid}.\n" +
+    "#{bottle.action}, " +
+    "#{bottle.pred} of #{liquid} #{location}.\n"
   end
 
   def liquid
